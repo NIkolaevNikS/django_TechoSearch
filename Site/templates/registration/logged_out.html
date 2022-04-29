@@ -1,0 +1,23 @@
+{% extends 'Site/base1.html' %}
+{% block content %}
+{% load static %}
+<section class="vh-100">
+      <div class="container py-5 h-100">
+        <div class="row d-flex align-items-center justify-content-center h-100">
+          <div class="col-md-8 col-lg-7 col-xl-6">
+            <img src="{% static 'uploads/waterproof-desk-mat-mockup-right-view.jpg' %}"
+              class="img-fluid" alt="Phone image">
+          </div>
+          <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+              <div class="form-outline mb-4">
+                  <h2 class="text-center">Выход из системы!</h2>
+                  <div class="d-flex justify-content-around align-items-center mb-4">
+                         <a class="btn btn-secondary btn-lg btn-block" href="{% url 'login' %}">Перейти на страницу авторизации</a>
+                     </div>
+
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}

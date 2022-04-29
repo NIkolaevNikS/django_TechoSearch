@@ -1,0 +1,40 @@
+{% extends 'Site/base1.html' %}
+{% block content %}
+{% if user.is_superuser %}
+<main class="mt-5 pt-4">
+    <div class="container dark-grey-text mt-5">
+<h3>Список производителей</h3>
+<table>
+    <thead>
+        <th>Id</th>
+        <th>Производитель</th>
+        <th> Редактировать
+        </th>
+    </thead>
+    {% if manufact %}
+    {% for manufact in manufact.all %}
+    <tr>
+    <td>{{manufact.Manufacturer_id}}</td>
+    <td>{{manufact.Manufacturer_name}}</td>
+    <td><a href="/editmanufact/{{manufact.Manufacturer_id}}">Измeнить</a> ,
+    <a href="/deletemanufact/{{manufact.Manufacturer_id}}">Удaлить</a></td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <p>В базе данных нет производителей</p>
+    {% endif %}
+</table>
+<h3>Добавить в БД производителя</h3>
+<form method="POST" action="/createmanufact/">
+    {% csrf_token %}
+    <table>
+        {{ form }}
+    </table>
+    <input type="submit" value="Сохранить" >
+</form>
+    </div>
+</main>
+{% else %}
+<p>У вас нет доступа!</p>
+{% endif %}
+{% endblock %}

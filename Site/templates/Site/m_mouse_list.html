@@ -1,0 +1,161 @@
+{% extends 'Site/base1.html' %}
+{% block title %}Компьютерные мыши{% endblock %}
+{% block content %}
+{% load static %}
+<main>
+    <div class="container-lg mt-5 pt-4">
+        <div class="row">
+            <div class="col-sm-8">
+                <nav class="navbar navbar-expand-lg
+                    navbar-dark mdb-color purple lighten-3 mt-3 mb-5">
+                    <span class="navbar-brand">Компьютерные мыши</span>
+                    <button class="navbar-toggler" type="button"
+                            data-toggle="collapse" data-target="#nextNavbar"
+                            aria-controls="nextNavbar" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="nextNavbar">
+                        <form method="get"  id="target">
+                            <div class="md-form my-0">
+                            <input type="text" id="search" class="form-control mr-sm-2" name="M_Mouse_name_contains"
+                                    placeholder="Поиск" aria-label="Search">
+                            </div>
+                        </form>
+                    </div>
+                </nav>
+                <section class="text-center mb-4">
+                    <div class="row wow fadeIn">
+                    {% if queryset %}
+                    {% for m_mouse in queryset %}
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="card">
+                                <div class="view overlay">
+                                    <{{ m_mouse.mouse_image_set }}>
+                                    <a href="{{ m_mouse.get_absolute_url }}">
+                                    <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                </div>
+                                <div class="card-body text-center">
+                                    <a href="{{ m_mouse.get_absolute_url }}" class="grey-text">
+                                        <h5>{{ m_mouse.M_Mouse_name }}</h5>
+                                    </a>
+                                    <h5>
+                                        <strong>
+                                            <a href="{{ m_mouse.get_absolute_url }}" class="dark-grey-text"> {{m_mouse.M_Mouse_Manufacturer}}
+                                                <span class="badge badge-pill danger-color">
+                                                Новый
+                                            </span></a>
+                                        </strong>
+                                    </h5>
+                                    <h4 class="font-weight-bold blue-text">
+                                        <strong>{{m_mouse.M_Mouse_Price}} Рублей</strong>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                            <h4 class="text-center alert purple lighten-3">Товары не найдены</h4>
+                        {% endif %}
+                    </div>
+                </section>
+            </div>
+            <div class="col-sm-4 mt-3">
+                <div class="card">
+                    <div class="card-header purple lighten-3 text-white">
+                        <div class="h5 card-title d-flex align-items-center">
+                            <i class="fa fa-bars mr-1" aria-hidden="true"></i>
+                            Фильтр
+                        </div>
+                    </div>
+                <form method="get">
+                    <div class="form-group card-body mt-1">
+                        <div class="mb-3">
+                            <h3 class="filter-price__title">Цена</h3>
+                            <div class="filter-price__slider" id="range-slider"></div>
+                            <div class="filter-price__inputs">
+                            <label class="form-control filter-price__label">
+                                <span class="filter-price__text">от</span>
+                                <input type="number" min=0 max="25000" class="filter-price__input" id="minPrice" placeholder="0" name="min_price">
+                                <span class="filter-price__text">₽</span>
+                            </label>
+                            <label class="form-control filter-price__label">
+                                <span class="filter-price__text">до</span>
+                                <input type="number" min=0 max="25000" class="filter-price__input" id="maxPrice" placeholder="10000" name="max_price">
+                                <span class="filter-price__text">₽</span>
+                            </label>
+                            </div>
+                        </div>
+                    <div class="form-group">
+                          {% for man in manufacturer %}
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="manufactur" name="manufactur" value="{{ man.Manufacturer_id }}">
+                            <span class="form-check-label">{{ man.Manufacturer_name }}</span>
+                        </div>
+                          {% endfor %}
+                    </div>
+                    <div class="form-group">
+                        <label for="ConnectionInt">Интерфейс подключения</label>
+                        <select id="ConnectionInt" class="form-control" name="connectint">
+                          <option selected>----</option>
+                          {% for cint in connectint %}
+                          <option value="{{ cint }}">{{ cint }}</option>
+                          {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Sensers">Модель сенсора</label>
+                        <select id="Sensers" class="form-control" name="senser">
+                          <option selected>----</option>
+                          {% for sens in senser %}
+                          <option value="{{ sens }}">{{ sens }}</option>
+                          {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ConnectType">Тип подключения</label>
+                        <select id="ConnectType" class="form-control" name="connecttype">
+                          <option selected>----</option>
+                          {% for cnt in connecttype %}
+                          <option value="{{ cnt }}">{{ cnt }}</option>
+                          {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Frequency">Частота обращения</label>
+                        <select id="Frequency" class="form-control" name="frequency">
+                          <option selected>----</option>
+                          {% for frq in frequency %}
+                          <option value="{{ frq }}">{{ frq }}</option>
+                          {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Dpi">Максимальное разрешение датчика</label>
+                        <select id="Dpi" class="form-control" name="dpi">
+                          <option selected>----</option>
+                          {% for dpi in dpi %}
+                          <option value="{{ dpi }}">{{ dpi }}</option>
+                          {% endfor %}
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-secondary d-flex ">Найти</button>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+document.getElementById("search").onchange = function() {
+    document.getElementById("target").submit();
+}
+function fun1() {
+  var rng=document.getElementById('r1');
+  var p=document.getElementById('one');
+  p.innerHTML=rng.value;
+}
+</script>
+    {% endblock %}

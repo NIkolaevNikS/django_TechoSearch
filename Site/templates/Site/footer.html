@@ -1,0 +1,14 @@
+<footer class="page-footer purple lighten-3 text-center font-small mt-4 wow fadeIn">
+  <div class="pt-4 pb-3">
+    <a href="{% url 'home' %}" role="button" class="btn btn-outline-white">TechnoSearch
+    <i class="fa fa-graduation-cap ml-2"></i>
+    </a>
+
+    <a href="{% url 'login' %}?next={{request.path}}" role="button" class="btn btn-outline-white">Авторизация
+    <i class="fa fa-circle-user ml-2" aria-hidden="true"></i>
+    </a>
+  </div>
+  <div class="footer-copyright py-3">
+    ©TechnoSearch, 2022
+  </div>
+</footer>

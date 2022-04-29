@@ -1,0 +1,46 @@
+{% extends 'Site/base1.html' %}
+{% block content %}
+{% if user.is_superuser %}
+<main class="mt-5 pt-4">
+    <div class="row">
+        <div class="col-sm-8 offset-2">
+            <h4 class="text-center alert purple lighten-3"> Изменение данных</h4>
+            <form action="" method="post" id="target"  enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form.as_p}}
+                <a href="{% url 'keyboard_create' %}" class="btn btn-info">Назад</a>
+            </form>
+        </div>
+    </div>
+</main>
+<script>
+document.getElementById("name").onchange = function() {
+    document.getElementById("target").submit();
+}
+document.getElementById("manufact").onchange = function() {
+    document.getElementById("target").submit();
+}
+document.getElementById("type").onchange = function() {
+    document.getElementById("target").submit();
+}
+document.getElementById("switch").onchange = function() {
+    document.getElementById("target").submit();
+}
+document.getElementById("format").onchange = function() {
+    document.getElementById("target").submit();
+}
+document.getElementById("cnt").onchange = function() {
+    document.getElementById("target").submit();
+}
+document.getElementById("image").onchange = function() {
+    document.getElementById("target").submit();
+}
+document.getElementById("price").onchange = function() {
+    document.getElementById("target").submit();
+}
+document.getElementById("cint").onchange = function() {
+    document.getElementById("target").submit();
+}
+</script>
+{% endif %}
+{% endblock %}

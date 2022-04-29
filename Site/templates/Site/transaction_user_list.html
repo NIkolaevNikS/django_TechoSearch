@@ -1,0 +1,21 @@
+{% extends 'Site/base_ex.html' %}
+{% block content %}
+    <h1>Покупки</h1>
+    {% if transaction_list %}
+    <ul>
+        {% for transaction in transaction_list %}
+        <li>
+            <a href="{% url 'mouse-detail' transaction.Transaction_Mouse.pk %}">
+            {{transaction.Transaction_Mouse.M_Mouse_name}}</a>
+            ({{ transaction.Transaction_Date }}) </li>
+        <li>
+             <a href="{% url 'mouse-detail' transaction.Transaction_Keyboard.pk %}">
+            {{transaction.Transaction_Keyboard.K_Keyboard_name}}</a>
+            ({{ transaction.Transaction_Date }})
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>Нет заказов.</p>
+    {% endif %}
+{% endblock %}

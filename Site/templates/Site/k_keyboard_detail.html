@@ -1,0 +1,77 @@
+{% extends 'Site/base1.html' %}
+{% block title %}{{ k_keyboard.K_Keyboard_Manufacturer }} {{ k_keyboard.K_Keyboard_name }}{% endblock %}
+{% block content %}
+<main class="mt-5 pt-4">
+    <div class="container dark-grey-text mt-5">
+        <div class="row wow FadeIn">
+            <div class="col-md-6 mb-4">
+                <{{ k_keyboard.keyboard_image_set1 }}>
+                <p class="text-center purple lighten-4 lead">{{ k_keyboard.K_Keyboard_name }}</p>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <div class="p-4">
+                    <div class="mb-3">
+                        <a href="{% url 'keyboards' %}">
+                            <span class="badge purple mr-1">Клавиатура</span>
+                        </a>
+                        <a href="">
+                            <span class="badge blue mr-1">New</span>
+                        </a>
+                    </div>
+                    <p class="lead">
+                        <span class="mr-1">
+                            {{k_keyboard.K_Keyboard_Price}} ₽
+                        </span>
+                    </p>
+                    <p class="lead font-weight-bold">Описание товара</p>
+                    <p><strong>Производитель:</strong> {{ k_keyboard.K_Keyboard_Manufacturer }}</p>
+                    <p><strong>Тип клавиатуры: </strong> {{ k_keyboard.K_Keyboard_Type }} </p>
+                    <p><strong>Модель переключателя:</strong> {{ k_keyboard.K_Keyboard_SwitchModel }}</p>
+                    <p><strong>Формат клавиатуры:</strong> {{ k_keyboard.K_Keyboard_Format }}</p>
+                    <div class="ml-3 mt-5 mb-5">
+                        <h5 class="font-weight-bold">Подключение</h5>
+                            <p><strong>Тип подключения:</strong> {{k_keyboard.K_Keyboard_ConnectType}}</p>
+                            <p><strong>Интерфейс подключения:</strong> {{k_keyboard.K_Keyboard_ConnectionInt}}</p>
+                    </div>
+                    <form action="" class="d-flex justify-content-left">
+                        <input type="number" value="1" aria-label="Search"
+                        style="width: 100px" class="form-control">
+                        <button class="btn btn-secondary btn-md my-0 p">
+                            В корзину <i class="fa fa-shopping-cart ml-1"></i>
+                        </button>
+                    </form>
+                    <div class="mb-5 mt-5">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+    <div class="row d-flex justify-content-center wow fadeIn">
+        <div class="col-md-6 text-center">
+            <h4 class="my-4 h4"> Дополнительная информация</h4>
+            <p> Logitech — швейцарская компания, которая разрабатывает продукты и технологии, ставшие неотъемлемой частью
+                повседневной жизни. Основными ее приоритетами являются внедрение инноваций и постоянное повышение качества продукции.
+                Фирма, основанная в Лозанне (Швейцария) в 1981 г., быстро завоевала позиции на рынке, расширив сферу своего влияния вплоть до Кремниевой долины.
+                Создатели Logitech стремились наладить контакты между людьми, и им это удалось — посредством инновационных периферийных устройств для компьютеров
+                и множества других новинок,
+                среди которых инфракрасная беспроводная мышь, трекбол, управляемый большим пальцем, лазерная мышь и другие.</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4 col-md-12 mb-4">
+            <img src="" alt="" class="img-fluid">
+        </div>
+         <div class="col-lg-4 col-md-12 mb-4">
+            <img src="" alt="" class="img-fluid">
+        </div>
+         <div class="col-lg-4 col-md-12 mb-4">
+            <img src="" alt="" class="img-fluid">
+        </div>
+    </div>
+</main>
+{% endblock %}

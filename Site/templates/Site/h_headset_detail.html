@@ -1,0 +1,78 @@
+{% extends 'Site/base1.html' %}
+{% block title %}{{ h_headset.H_HeadSet_Manufacturer }} {{ h_headset.H_HeadSet_name }}{% endblock %}
+{% block content %}
+<main class="mt-5 pt-4">
+    <div class="container dark-grey-text mt-5">
+        <div class="row wow FadeIn">
+            <div class="col-md-6 mb-4">
+                <{{ h_headset.headset_image_set1 }}>
+                <p class="text-center purple lighten-4 lead">{{ h_headset.H_HeadSet_name }}</p>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <div class="p-4">
+                    <div class="mb-3">
+                        <a href="{% url 'headsets' %}">
+                            <span class="badge purple mr-1">Гарнитура</span>
+                        </a>
+                        <a href="">
+                            <span class="badge blue mr-1">New</span>
+                        </a>
+                    </div>
+                    <p class="lead">
+                        <span class="mr-1">
+                            {{h_headset.H_HeadSet_Price}} ₽
+                        </span>
+                    </p>
+                    <p class="lead font-weight-bold">Описание товара</p>
+                    <p><strong>Производитель:</strong> {{ h_headset.H_HeadSet_Manufacturer }}</p>
+                    <p><strong>Схема звука: </strong> {{ h_headset.H_HeadSet_Scheme }} </p>
+                    <p><strong>Диапозон частот:</strong> {{ h_headset.H_HeadSet_Hz }}</p>
+                    <p><strong>Чувсвительность:</strong> {{ h_headset.H_HeadSet_Sens }}</p>
+                    <p><strong>Комплект:</strong> {{ h_headset.H_HeadSet_Set }}</p>
+                    <div class="ml-3 mt-5 mb-5">
+                        <h5 class="font-weight-bold">Подключение</h5>
+                            <p><strong>Тип подключения:</strong> {{h_headset.H_HeadSet_ConnectType}}</p>
+                            <p><strong>Интерфейс подключения:</strong> {{h_headset.H_HeadSet_ConnectionInt}}</p>
+                    </div>
+                    <form action="" class="d-flex justify-content-left">
+                        <input type="number" value="1" aria-label="Search"
+                        style="width: 100px" class="form-control">
+                        <button class="btn btn-secondary btn-md my-0 p">
+                            В корзину <i class="fa fa-shopping-cart ml-1"></i>
+                        </button>
+                    </form>
+                    <div class="mb-5 mt-5">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+    <div class="row d-flex justify-content-center wow fadeIn">
+        <div class="col-md-6 text-center">
+            <h4 class="my-4 h4"> Дополнительная информация</h4>
+            <p> Logitech — швейцарская компания, которая разрабатывает продукты и технологии, ставшие неотъемлемой частью
+                повседневной жизни. Основными ее приоритетами являются внедрение инноваций и постоянное повышение качества продукции.
+                Фирма, основанная в Лозанне (Швейцария) в 1981 г., быстро завоевала позиции на рынке, расширив сферу своего влияния вплоть до Кремниевой долины.
+                Создатели Logitech стремились наладить контакты между людьми, и им это удалось — посредством инновационных периферийных устройств для компьютеров
+                и множества других новинок,
+                среди которых инфракрасная беспроводная мышь, трекбол, управляемый большим пальцем, лазерная мышь и другие.</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4 col-md-12 mb-4">
+            <img src="" alt="" class="img-fluid">
+        </div>
+         <div class="col-lg-4 col-md-12 mb-4">
+            <img src="" alt="" class="img-fluid">
+        </div>
+         <div class="col-lg-4 col-md-12 mb-4">
+            <img src="" alt="" class="img-fluid">
+        </div>
+    </div>
+</main>
+{% endblock %}

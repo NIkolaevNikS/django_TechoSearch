@@ -1,0 +1,16 @@
+{% extends 'Site/base_ex.html' %}
+
+<ul class="sidebar-nav">
+            <li><a href="{% url 'index' %}">Главная страница</a></li>
+            <li><a href="{% url 'mouses' %}">Bce мышки</a></li>
+                {% if user.is_superuser %}
+            <li><a href="{% url 'manufact_add' %}">Редактировать производителей</a></li>
+            <li><a href="{% url 'mouse_create' %}">Добавить мышку</a></li>
+                {% endif %}
+                {% if user.is_authenticated %}
+                    <li>Пользователь: {{ user.get_username }}</li>
+                    <li><a href="{% url 'logout' %}?next={{request.path}}">Выход</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}?next={{request.path}}">Вход</a></li>
+                {% endif %}
+            </ul>

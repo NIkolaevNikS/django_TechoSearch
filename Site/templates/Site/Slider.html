@@ -1,0 +1,287 @@
+{% extends 'Site/base1.html' %}
+{% block title %}Главная{% endblock %}
+{% block content %}
+{% load static %}
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const slider = new ChiefSlider('.slider', {
+          loop: true,
+          autoplay: true,
+          interval: 5000,
+          swipe: true,
+          refresh: false
+      });
+    });
+  </script>
+  <div class="slider pt-5">
+  <div class="slider__container">
+    <div class="slider__wrapper">
+      <div class="slider__items">
+        <div class="slider__item">
+          <img src="{% static 'uploads/keyboard.png' %}">
+        </div>
+        <div class="slider__item">
+          <img src="{% static 'uploads/headset3.png' %}">
+        </div>
+        <div class="slider__item">
+          <img src="{% static 'uploads/mouse1.png' %}">
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="#" class="slider__control" data-slide="prev"></a>
+  <a href="#" class="slider__control" data-slide="next"></a>
+</div>
+<hr>
+<main>
+    <div class="container-lg">
+        <nav class="navbar navbar-expand-lg
+         navbar-dark mdb-color purple lighten-3 mt-3 mb-5">
+            <span class="navbar-brand">Категории:</span>
+
+            <button class="navbar-toggler" type="button"
+                    data-toggle="collapse" data-target="#nextNavbar"
+                    aria-controls="nextNavbar" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            <div class="collapse navbar-collapse" id="nextNavbar">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"> Мышки</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"> Клавиатуры</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"> Наушники</a>
+                    </li>
+                </ul>
+
+                <form class="form-inline">
+                    <div class="md-form my-0">
+                        <input type="text" class="form-control mr-sm-2"
+                        placeholder="Поиск" aria-label="Поиск">
+                    </div>
+                </form>
+            </div>
+
+        </nav>
+        <section class="text-center mb-4">
+            <div  class="row wow fadeIn">
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card">
+                        <div class="view overlay">
+                            <img class="card-img-top" src="{% static 'uploads/keyboard.png' %}" alt="ya">
+                            <a href="">
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+                        <div class="card-body text-center">
+                            <a href="" class="grey-text">
+                                <h5>Мышка</h5>
+                            </a>
+                            <h5>
+                                <strong>
+                                    <a href="" class="dark-grey-text"> Мышка <span class="badge badge-pill danger-color">
+                                        Новый
+                                    </span></a>
+                                </strong>
+                            </h5>
+                            <h4 class="font-weight-bold blue-text">
+                                <strong>100 рублей</strong>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card">
+                        <div class="view overlay">
+                            <img class="card-img-top" src="{% static 'uploads/keyboard.png' %}" alt="ya">
+                            <a href="">
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+                        <div class="card-body text-center">
+                            <a href="" class="grey-text">
+                                <h5>Мышка</h5>
+                            </a>
+                            <h5>
+                                <strong>
+                                    <a href="" class="dark-grey-text"> Мышка <span class="badge badge-pill danger-color">
+                                        Новый
+                                    </span></a>
+                                </strong>
+                            </h5>
+                            <h4 class="font-weight-bold blue-text">
+                                <strong>100 рублей</strong>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card">
+                        <div class="view overlay">
+                            <img class="card-img-top" src="{% static 'uploads/keyboard.png' %}" alt="ya">
+                            <a href="">
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+                        <div class="card-body text-center">
+                            <a href="" class="grey-text">
+                                <h5>Мышка</h5>
+                            </a>
+                            <h5>
+                                <strong>
+                                    <a href="" class="dark-grey-text"> Мышка <span class="badge badge-pill danger-color">
+                                        Новый
+                                    </span></a>
+                                </strong>
+                            </h5>
+                            <h4 class="font-weight-bold blue-text">
+                                <strong>100 рублей</strong>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card">
+                        <div class="view overlay">
+                            <img class="card-img-top" src="{% static 'uploads/keyboard.png' %}" alt="ya">
+                            <a href="">
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+                        <div class="card-body text-center">
+                            <a href="" class="grey-text">
+                                <h5>Мышка</h5>
+                            </a>
+                            <h5>
+                                <strong>
+                                    <a href="" class="dark-grey-text"> Мышка <span class="badge badge-pill danger-color">
+                                        Новый
+                                    </span></a>
+                                </strong>
+                            </h5>
+                            <h4 class="font-weight-bold blue-text">
+                                <strong>100 рублей</strong>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div  class="row wow fadeIn">
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card">
+                        <div class="view overlay">
+                            <img class="card-img-top" src="{% static 'uploads/keyboard.png' %}" alt="ya">
+                            <a href="">
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+                        <div class="card-body text-center">
+                            <a href="" class="grey-text">
+                                <h5>Мышка</h5>
+                            </a>
+                            <h5>
+                                <strong>
+                                    <a href="" class="dark-grey-text"> Мышка <span class="badge badge-pill danger-color">
+                                        Новый
+                                    </span></a>
+                                </strong>
+                            </h5>
+                            <h4 class="font-weight-bold blue-text">
+                                <strong>100 рублей</strong>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card">
+                        <div class="view overlay">
+                            <img class="card-img-top" src="{% static 'uploads/keyboard.png' %}" alt="ya">
+                            <a href="">
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+                        <div class="card-body text-center">
+                            <a href="" class="grey-text">
+                                <h5>Мышка</h5>
+                            </a>
+                            <h5>
+                                <strong>
+                                    <a href="" class="dark-grey-text"> Мышка <span class="badge badge-pill danger-color">
+                                        Новый
+                                    </span></a>
+                                </strong>
+                            </h5>
+                            <h4 class="font-weight-bold blue-text">
+                                <strong>100 рублей</strong>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card">
+                        <div class="view overlay">
+                            <img class="card-img-top" src="{% static 'uploads/keyboard.png' %}" alt="ya">
+                            <a href="">
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+                        <div class="card-body text-center">
+                            <a href="" class="grey-text">
+                                <h5>Мышка</h5>
+                            </a>
+                            <h5>
+                                <strong>
+                                    <a href="" class="dark-grey-text"> Мышка <span class="badge badge-pill danger-color">
+                                        Новый
+                                    </span></a>
+                                </strong>
+                            </h5>
+                            <h4 class="font-weight-bold blue-text">
+                                <strong>100 рублей</strong>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card">
+                        <div class="view overlay">
+                            <img class="card-img-top" src="{% static 'uploads/keyboard.png' %}" alt="ya">
+                            <a href="">
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+                        <div class="card-body text-center">
+                            <a href="" class="grey-text">
+                                <h5>Мышка</h5>
+                            </a>
+                            <h5>
+                                <strong>
+                                    <a href="" class="dark-grey-text"> Мышка <span class="badge badge-pill danger-color">
+                                        Новый
+                                    </span></a>
+                                </strong>
+                            </h5>
+                            <h4 class="font-weight-bold blue-text">
+                                <strong>100 рублей</strong>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+{% endblock %}

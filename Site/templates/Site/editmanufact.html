@@ -1,0 +1,13 @@
+{% extends 'Site/base_ex.html' %}
+{% block content %}
+<h3>Список производителей в БД</h3>
+<h4>{{manufact.Manufacturer_name}}</h4>
+<form method="POST">
+    {% csrf_token %}
+    <p> <label>Измените название</label><br>
+    <input type="text" name="Manufacturer_name"
+    value="{{manufact.Manufacturer_name}}" />
+    </p>
+    <input type="submit" value="Сохранить" >
+</form>
+{% endblock %}

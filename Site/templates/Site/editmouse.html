@@ -1,0 +1,42 @@
+{% extends 'Site/base_ex.html' %}
+{% block content %}
+{% if user.is_superuser %}
+<h3>Список компьютерных мышей в БД</h3>
+<h4>{{mouse.M_Mouse_name}}</h4>
+<form method="POST">
+    {% csrf_token %}
+    <p> <label>Иэмените название</label><br>
+    <input type="text" name="M_Mouse_name"
+    value="{{mouse.M_Mouse_name}}" />
+    </p>
+    <p> <label>Иэмените производителя</label><br>
+    <input type="text" name="M_Mouse_Manufacturer"
+    value="{{mouse.M_Mouse_Manufacturer}}" />
+    </p>
+    <p> <label>Иэмените модель сенсора</label><br>
+    <input type="text" name="M_Mouse_SenserModel"
+    value="{{mouse.M_Mouse_SenserModel}}" />
+    </p>
+    <p> <label>Иэмените тип подключения</label><br>
+    <input type="text" name="M_Mouse_ConnectType"
+    value="{{mouse.M_Mouse_ConnectType}}" />
+    </p>
+    <p> <label>Иэмените частоту обращения</label><br>
+    <input type="text" name="M_Mouse_Frequency"
+    value="{{mouse.M_Mouse_Frequency}}" />
+    </p>
+    <p> <label>Иэмените максимальное разрешение датчика</label><br>
+    <input type="text" name="M_Mouse_DPI"
+    value="{{mouse.M_Mouse_DPI}}" />
+    </p>
+    <p> <label>Иэмените интерфейс подключения</label><br>
+    <input type="text" name="M_Mouse_ConnectionInt"
+    value="{{mouse.M_Mouse_ConnectionInt}}" />
+    </p>
+
+    <input type="submit" value="Сохранить" >
+</form>
+{% else %}
+<p>У вас нет доступа!</p>
+{% endif %}
+{% endblock %}

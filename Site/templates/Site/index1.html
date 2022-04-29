@@ -1,0 +1,16 @@
+{% extends 'Site/base_ex.html' %}
+{% block content %}
+    <h1>Главная страница</h1>
+    <p>Добро пожаловать в <em>TechnoSearch</em>.</p>
+    <h2>Содержание</h2>
+    <p>База данных сайта TechnoSearch содержит следующее
+    количество записей :</p>
+    <ul>
+    <li><strong>Koличecтвo гарнитур:</strong> {{ num_H_HeadSet }}</li>
+    <li><strong>Koличecтвo клавиатур:
+    </strong> {{ num_K_Keyboard }}</li>
+    <li><strong>Koличecтвo игровых мышек:
+    </strong> {{ num_M_Mouse }}</li>
+    </ul>
+<p>Количество посещений данной страницы - {{ num_visits }}</p>
+{% endblock %}

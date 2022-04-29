@@ -1,0 +1,112 @@
+{% extends 'Site/base1.html' %}
+{% block content %}
+{% if user.is_superuser %}
+<div class="row mt-5 pt-4">
+        <div class="col-sm-3">
+            <h4 class="text-center alert purple lighten-3">Добавить запись</h4>
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input class="btn btn-secondary" type="submit" value="Добавить" />
+            </form>
+        </div>
+
+        <div class="col-sm-9">
+        <h4 class="text-center alert purple lighten-3">Клавиатуры</h4>
+            {% if headset %}
+            <h4 class="text-center font-weight-bold">Таблица</h4>
+            <table class="table-sm table-hover">
+              <thead class="text-center">
+                <tr>
+                  <th scope="col">Название</th>
+                    <th scope="col">Изображение</th>
+                  <th scope="col">Бренд</th>
+                  <th scope="col">Схема звука</th>
+                    <th scope="col">Подключение</th>
+                    <th scope="col">Частота</th>
+                    <th scope="col">Чувствительность</th>
+                    <th scope="col">Комплект</th>
+                    <th scope="col">Цена</th>
+                    <th colspan="2" scope="col">Действие</th>
+                </tr>
+              </thead>
+              <tbody class="text-center">
+              {% for hs in page_obj %}
+                <tr>
+                  <td>{{hs.H_HeadSet_name}}</td>
+                    <td><{{hs.headset_image_set1}}></td>
+                  <td>{{hs.H_HeadSet_Manufacturer}}</td>
+                  <td>{{hs.H_HeadSet_Scheme}}</td>
+                    <td>{{hs.H_HeadSet_ConnectType}},
+                    {{hs.H_HeadSet_ConnectionInt}}
+                    </td>
+                  <td>{{hs.H_HeadSet_Hz}}</td>
+                  <td>{{hs.H_HeadSet_Sens}}</td>
+                    <td>{{hs.H_HeadSet_Set}}</td>
+                  <td>{{hs.H_HeadSet_Price}}₽</td>
+                  <td>
+                  <a href="{% url 'updateheadset' hs.H_HeadSet_id %}" class="btn btn-sm btn-secondary">Edit</a>
+                  </td>
+                    <td>
+                        <a href="{% url 'deleteheadset' hs.H_HeadSet_id %}" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+            <div class="d-flex justify-content-center wow fadeIn">
+                    <ul class="pagination pg-purple">
+                        <li class="page-item">
+                            <a {% if page_obj.has_previous %} href="{{ request.path }}?page={{ page_obj.previous_page_number }}"
+                               {% endif %} class="page-link" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        {% if page_obj.number == 1 %}
+                         <li class="page-item active">
+                            <a href="{{ request.path }}?page={{ 1 }}" class="page-link" aria-label="Previous">
+                                <span aria-hidden="true">1</span>
+                            </a>
+                        </li>
+                        {% else %}
+                        <li class="page-item">
+                            <a href="{{ request.path }}?page={{ 1 }}" class="page-link" aria-label="Previous">
+                                <span aria-hidden="true">1</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                        {% if page_obj.number == page_obj.paginator.num_pages %}
+                        <li class="page-item active">
+                            <a href="{{ request.path }}?page={{ page_obj.paginator.num_pages }}" class="page-link" aria-label="Previous">
+                                <span aria-hidden="true">{{ page_obj.paginator.num_pages }}</span>
+                            </a>
+                        </li>
+                        {% else %}
+                         <li class="page-item">
+                            <a href="{{ request.path }}?page={{ page_obj.paginator.num_pages }}" class="page-link" aria-label="Previous">
+                                <span aria-hidden="true">{{ page_obj.paginator.num_pages }}</span>
+                            </a>
+                        </li>
+                         {% endif %}
+                        <li class="page-item">
+                            <a  {% if page_obj.has_next %} href="{{ request.path }}?page={{ page_obj.next_page_number }}"
+                                {% endif %} class="page-link" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            {% else %}
+            <h4 class="text-center alert purple lighten-3">Нет данных</h4>
+            {% endif %}
+        </div>
+</div>
+{% else %}
+<main class="mt-5 pt-4">
+    <div class="row">
+        <h1 class="text-center font-weight-bold"> У вас недостаточно прав!</h1>
+
+    </div>
+</main>
+{% endif %}
+{% endblock %}

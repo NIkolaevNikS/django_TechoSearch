@@ -1,0 +1,145 @@
+{% load static %}
+    <div class="container-lg">
+        <div class="row">
+            <div class="col-sm-2">
+                <form action="{% url 'filter' %}" method="get">
+                    <div class="left-side my-4">
+                        <h3 class="sear-head editContent"> Интерфейс </h3>
+                        <ul>
+                            {% for connectionint in view.get_Connectionint %}
+                            <li class="editContent">
+                                <input type="checkbox" class="form-check-input" name="connectionint" value="{{ connectionint.ConnectionInt_id }}">
+                                <span class="span editContent">{{ connectionint.ConnectionInt_name }}</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="left-side my-4">
+                        <h3 class="sear-head editContent"> Производители </h3>
+                        <ul>
+                            {% for manufacturer in view.get_manufact %}
+                            <li>
+                                <input type="checkbox" class="form-check-input" name="manufacturer" value="{{ manufacturer.Manufacturer_id }}">
+                                <span class="span editContent">{{ manufacturer.Manufacturer_name }}</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                        <button class="btn btn-md btn-secondary" type="submit">Найти</button>
+                </form>
+            </div>
+            <div class="col-sm-10">
+                <nav class="navbar navbar-expand-lg
+                    navbar-dark mdb-color purple lighten-3 mt-3 mb-5">
+                    <span class="navbar-brand">Компьютерные мыши</span>
+
+                    <button class="navbar-toggler" type="button"
+                            data-toggle="collapse" data-target="#nextNavbar"
+                            aria-controls="nextNavbar" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="nextNavbar">
+                        <form class="form-inline" method="get">
+                            <div class="md-form my-0">
+                                <input type="text" class="form-control mr-sm-2"
+                                placeholder="Поиск" aria-label="Search">
+                            </div>
+                        </form>
+                    </div>
+                </nav>
+                <section class="text-center mb-4">
+                    <div  class="row wow fadeIn">
+                    {% for m_mouse in m_mouse_list %}
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="card">
+                                <div class="view overlay">
+                                    <{{ m_mouse.mouse_image_set }}>
+                                    <a href="{{ m_mouse.get_absolute_url }}">
+                                    <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                </div>
+                                <div class="card-body text-center">
+                                    <a href="{{ m_mouse.get_absolute_url }}" class="grey-text">
+                                        <h5>{{ m_mouse.M_Mouse_name }}</h5>
+
+                                    </a>
+                                    <h5>
+                                        <strong>
+                                            <a href="{{ m_mouse.get_absolute_url }}" class="dark-grey-text"> {{m_mouse.M_Mouse_Manufacturer}}
+                                                <span class="badge badge-pill danger-color">
+                                                Новый
+                                            </span></a>
+                                        </strong>
+                                    </h5>
+                                    <h4 class="font-weight-bold blue-text">
+                                        <strong>{{m_mouse.M_Mouse_Price}} Рублей</strong>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </section>
+                <div class="d-flex justify-content-center wow fadeIn">
+                    <ul class="pagination pg-purple">
+                        <li class="page-item">
+                            {% if is_paginated %}
+
+                            <a {% if page_obj.has_previous %} href="{{ request.path }}?page={{ page_obj.previous_page_number }}"
+                               {% endif %} class="page-link" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        {% if page_obj.number == 1 %}
+                         <li class="page-item active">
+                            <a href="{{ request.path }}?page={{ 1 }}" class="page-link" aria-label="Previous">
+                                <span aria-hidden="true">1</span>
+                            </a>
+                        </li>
+                        {% else %}
+                        <li class="page-item">
+                            <a href="{{ request.path }}?page={{ 1 }}" class="page-link" aria-label="Previous">
+                                <span aria-hidden="true">1</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                         {% if page_obj.number == 2 %}
+                        <li class="page-item active">
+                            <a href="{{ request.path }}?page={{ 2 }}" class="page-link" aria-label="Previous">
+                                <span aria-hidden="true">2</span>
+                            </a>
+                        </li>
+                        {% else %}
+                        <li class="page-item">
+                            <a href="{{ request.path }}?page={{ 2 }}" class="page-link" aria-label="Previous">
+                                <span aria-hidden="true">2</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                        {% if page_obj.number == page_obj.paginator.num_pages %}
+                        <li class="page-item active">
+                            <a href="{{ request.path }}?page={{ page_obj.paginator.num_pages }}" class="page-link" aria-label="Previous">
+                                <span aria-hidden="true">{{ page_obj.paginator.num_pages }}</span>
+                            </a>
+                        </li>
+                        {% else %}
+                         <li class="page-item">
+                            <a href="{{ request.path }}?page={{ page_obj.paginator.num_pages }}" class="page-link" aria-label="Previous">
+                                <span aria-hidden="true">{{ page_obj.paginator.num_pages }}</span>
+                            </a>
+                        </li>
+                         {% endif %}
+                        <li class="page-item">
+                            <a  {% if page_obj.has_next %} href="{{ request.path }}?page={{ page_obj.next_page_number }}"
+                                {% endif %} class="page-link" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
